@@ -24,6 +24,9 @@
         android:name="com.example.navigationcomponentexample.FirstStepFragment"
         android:label="fragment_first_step"
         tools:layout="@layout/fragment_first_step" >
+
+
+
         <action
             android:id="@+id/action_firstStepFragment_to_secondStepFragment"
             app:destination="@id/secondStepFragment"
@@ -38,6 +41,9 @@
         android:name="com.example.navigationcomponentexample.SecondStepFragment"
         android:label="fragment_second_step"
         tools:layout="@layout/fragment_second_step" >
+        <argument android:name="username"
+            android:defaultValue="None"
+            />
         <action
             android:id="@+id/action_secondStepFragment_to_thirdFragment"
             app:destination="@id/thirdFragment"
@@ -52,6 +58,12 @@
         android:name="com.example.navigationcomponentexample.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" >
+        <argument android:name="username"
+            android:defaultValue="None"
+            />
+        <argument android:name="description"
+            android:defaultValue="None"
+            />
 
 <!--        popUpTo describes what I want to happen when back button pressed-->
 <!--        popUpToIncluse true means clear everything, including the destination-->

@@ -6,6 +6,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
 import kotlinx.android.synthetic.main.fragment_first_step.*
@@ -29,7 +30,11 @@ class FirstStepFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
         nextBtn.setOnClickListener {
-            navController?.navigate(R.id.action_firstStepFragment_to_secondStepFragment)
+            if(editText.text.toString().isNotEmpty()){
+                val bundle = bundleOf("username" to editText.text.toString())
+                navController?.navigate(R.id.action_firstStepFragment_to_secondStepFragment, bundle)
+
+            }
         }
     }
 

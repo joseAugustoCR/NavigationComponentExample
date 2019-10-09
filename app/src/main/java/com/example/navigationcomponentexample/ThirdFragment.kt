@@ -15,7 +15,15 @@ import kotlinx.android.synthetic.main.fragment_third.*
  */
 class ThirdFragment : Fragment() {
     var navController: NavController? = null
+    lateinit var username:String
+    lateinit var description:String
 
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        username = arguments?.getString("username").toString()
+        description = arguments?.getString("description").toString()
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +37,17 @@ class ThirdFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         navController = Navigation.findNavController(view)
 
+
+
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
         nextBtn.setOnClickListener {
             navController?.navigate(R.id.action_thirdFragment_to_welcomeFragment)
         }
+        usernameText.text = "$username:"
+        descriptionText.text = "\"$description\""
 
     }
 

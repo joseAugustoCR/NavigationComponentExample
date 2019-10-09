@@ -12,7 +12,12 @@
         tools:layout="@layout/fragment_welcome" >
         <action
             android:id="@+id/action_welcomeFragment_to_firstStepFragment"
-            app:destination="@id/firstStepFragment" />
+            app:destination="@id/firstStepFragment"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:popExitAnim="@android:anim/fade_out"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            />
     </fragment>
     <fragment
         android:id="@+id/firstStepFragment"
@@ -21,11 +26,44 @@
         tools:layout="@layout/fragment_first_step" >
         <action
             android:id="@+id/action_firstStepFragment_to_secondStepFragment"
-            app:destination="@id/secondStepFragment" />
+            app:destination="@id/secondStepFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
     </fragment>
     <fragment
         android:id="@+id/secondStepFragment"
         android:name="com.example.navigationcomponentexample.SecondStepFragment"
         android:label="fragment_second_step"
-        tools:layout="@layout/fragment_second_step" />
+        tools:layout="@layout/fragment_second_step" >
+        <action
+            android:id="@+id/action_secondStepFragment_to_thirdFragment"
+            app:destination="@id/thirdFragment"
+            app:popEnterAnim="@anim/slide_in_left"
+            app:popExitAnim="@anim/slide_out_right"
+            app:enterAnim="@anim/slide_in_right"
+            app:exitAnim="@anim/slide_out_left"
+            />
+    </fragment>
+    <fragment
+        android:id="@+id/thirdFragment"
+        android:name="com.example.navigationcomponentexample.ThirdFragment"
+        android:label="fragment_third"
+        tools:layout="@layout/fragment_third" >
+
+<!--        popUpTo describes what I want to happen when back button pressed-->
+<!--        popUpToIncluse true means clear everything, including the destination-->
+        <action
+            android:id="@+id/action_thirdFragment_to_welcomeFragment"
+            app:destination="@id/welcomeFragment"
+            app:popExitAnim="@android:anim/fade_out"
+            app:popEnterAnim="@android:anim/fade_in"
+            app:enterAnim="@android:anim/fade_in"
+            app:exitAnim="@android:anim/fade_out"
+            app:popUpTo="@id/welcomeFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
 </navigation>

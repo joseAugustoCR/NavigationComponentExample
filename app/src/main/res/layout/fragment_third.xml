@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             app:layout_constraintTop_toTopOf="parent"
-            android:text="Let's start! How call I call you?"
+            android:text="That's all folks!"
             android:layout_marginTop="32dp"
             android:textSize="19sp"
             android:layout_marginLeft="16dp"
@@ -31,38 +31,13 @@
             app:layout_constraintStart_toStartOf="parent" />
 
 
-        <com.google.android.material.textfield.TextInputLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            app:layout_constraintTop_toBottomOf="@id/title"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:layout_marginTop="36dp"
-            android:layout_marginLeft="16dp"
-            app:layout_constraintBottom_toBottomOf="@id/nextBtn"
-            app:layout_constraintVertical_bias="0"
-            android:layout_marginBottom="20dp"
-            style="@style/FilledBoxLayoutStyle"
-            android:hint="Your name"
-            android:layout_marginRight="16dp"
-            >
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:imeOptions="actionDone"
-                android:id="@+id/editText"
-                android:layout_height="wrap_content"
-                />
-
-
-        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/nextBtn"
             android:layout_width="wrap_content"
             android:layout_marginBottom="16dp"
             android:padding="8dp"
-            android:text="Next"
+            android:text="Finish"
             android:backgroundTint="@color/colorAccent"
             android:textColor="@color/white"
             app:layout_constraintBottom_toBottomOf="parent"

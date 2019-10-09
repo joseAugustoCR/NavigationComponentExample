@@ -8,14 +8,12 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
-import kotlinx.android.synthetic.main.fragment_first_step.*
-import kotlinx.android.synthetic.main.fragment_first_step.nextBtn
-import kotlinx.android.synthetic.main.fragment_second_step.*
+import kotlinx.android.synthetic.main.fragment_third.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class SecondStepFragment : Fragment() {
+class ThirdFragment : Fragment() {
     var navController: NavController? = null
 
 
@@ -24,7 +22,7 @@ class SecondStepFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_second_step, container, false)
+        return inflater.inflate(R.layout.fragment_third, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -32,8 +30,10 @@ class SecondStepFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         nextBtn.setOnClickListener {
-            navController?.navigate(R.id.action_secondStepFragment_to_thirdFragment)
+            navController?.navigate(R.id.action_thirdFragment_to_welcomeFragment)
         }
+
     }
+
 
 }

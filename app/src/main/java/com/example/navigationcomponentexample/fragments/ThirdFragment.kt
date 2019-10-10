@@ -1,4 +1,4 @@
-package com.example.navigationcomponentexample
+package com.example.navigationcomponentexample.fragments
 
 
 import android.os.Bundle
@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import com.example.navigationcomponentexample.R
 import kotlinx.android.synthetic.main.fragment_third.*
 
 /**

@@ -39,6 +39,8 @@ class FirstStepFragment : Fragment() {
         }
         // or you can create an onclick listener directly
         //  nextBtn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_firstStepFragment_to_secondStepFragment))
+
+
     }
 
 }

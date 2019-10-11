@@ -41,5 +41,7 @@
         app:menu="@menu/menu_bottomnav"
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:itemTextColor="@drawable/nav_selector"
+        app:itemIconTint="@drawable/nav_selector"
         />
 </androidx.constraintlayout.widget.ConstraintLayout>

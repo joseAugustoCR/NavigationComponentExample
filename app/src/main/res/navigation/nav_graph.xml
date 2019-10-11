@@ -23,18 +23,18 @@
         <action
             android:id="@+id/action_welcomeFragment_to_bottomNavFragment"
             app:destination="@id/bottomNavFragment"
+            app:enterAnim="@anim/nav_default_enter_anim"
+            app:exitAnim="@anim/nav_default_exit_anim"
             app:popEnterAnim="@anim/nav_default_enter_anim"
             app:popExitAnim="@anim/nav_default_pop_exit_anim"
-            app:enterAnim="@anim/nav_default_enter_anim"
-            app:exitAnim="@anim/nav_default_exit_anim"/>
+            app:popUpTo="@+id/welcomeFragment"
+            />
     </fragment>
     <fragment
         android:id="@+id/firstStepFragment"
         android:name="com.example.navigationcomponentexample.fragments.FirstStepFragment"
         android:label="fragment_first_step"
         tools:layout="@layout/fragment_first_step" >
-
-
 
         <action
             android:id="@+id/action_firstStepFragment_to_secondStepFragment"
@@ -91,5 +91,11 @@
         android:id="@+id/bottomNavFragment"
         android:name="com.example.navigationcomponentexample.bottomnavigation.BottomNavFragment"
         android:label="fragment_bottom_nav"
-        tools:layout="@layout/fragment_bottom_nav" />
+        tools:layout="@layout/fragment_bottom_nav" >
+        <action
+            android:id="@+id/action_bottomNavFragment_to_welcomeFragment"
+            app:popUpToInclusive="true"
+            app:popUpTo="@id/welcomeFragment"
+            app:destination="@id/welcomeFragment" />
+    </fragment>
 </navigation>

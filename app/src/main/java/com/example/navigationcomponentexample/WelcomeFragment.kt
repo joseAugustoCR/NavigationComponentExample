@@ -33,7 +33,7 @@ class WelcomeFragment : Fragment() {
         //create a click listener that automatically redirect the user using the action id
 //        navBottomBtn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_bottomNavFragment))
         navBottomBtn.setOnClickListener {
-            navController?.navigate(R.id.action_welcomeFragment_to_bottomNavFragment)
+            Navigation.findNavController(it).navigate(R.id.action_welcomeFragment_to_bottomNavFragment)
         }
 
         //navigate by code

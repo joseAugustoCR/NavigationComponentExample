@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".bottomnavigation.ProfileFragment">
+    tools:context=".bottomnavigation.SettingsFragment">
 
     <TextView
         android:layout_width="wrap_content"
@@ -14,7 +14,7 @@
         app:layout_constraintRight_toRightOf="parent"
         android:layout_margin="24dp"
         android:textSize="18sp"
-        android:text="This is the profile fragment" />
+        android:text="Settings screen" />
 
 
     <com.google.android.material.button.MaterialButton
@@ -24,8 +24,8 @@
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:backgroundTint="@color/colorAccent"
-        android:id="@+id/settingsBtn"
-        android:text="Go to settings"
+        android:id="@+id/backToProfile"
+        android:text="Back to profile"
         android:layout_marginBottom="16dp"
         />
 

@@ -31,12 +31,17 @@ class WelcomeFragment : Fragment() {
         navController = Navigation.findNavController(view)
 
         //create a click listener that automatically redirect the user using the action id
-        navBottomBtn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_bottomNavFragment))
+//        navBottomBtn.setOnClickListener(Navigation.createNavigateOnClickListener(R.id.action_welcomeFragment_to_bottomNavFragment))
+        navBottomBtn.setOnClickListener {
+            navController?.navigate(R.id.action_welcomeFragment_to_bottomNavFragment)
+        }
 
         //navigate by code
         fragmentsBtn.setOnClickListener {
             navController?.navigate(R.id.action_welcomeFragment_to_firstStepFragment)
         }
+
+
     }
 
 

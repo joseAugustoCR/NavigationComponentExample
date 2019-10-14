@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 
 import com.example.navigationcomponentexample.R
 import kotlinx.android.synthetic.main.fragment_profile.*
@@ -15,22 +16,8 @@ import kotlinx.android.synthetic.main.fragment_profile.*
 /**
  * A simple [Fragment] subclass.
  */
-class ProfileFragment : Fragment() {
-    var navController: NavController? = null
-
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_profile, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
-    }
+class ProfileFragment : Fragment(R.layout.fragment_profile) {
+    val navController by lazy { findNavController(activity!!, R.id.fragment) }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

@@ -8,14 +8,15 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.example.navigationcomponentexample.R
 import kotlinx.android.synthetic.main.fragment_third.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class ThirdFragment : Fragment() {
-    var navController: NavController? = null
+class ThirdFragment : Fragment(R.layout.fragment_third) {
+    val navController by lazy { findNavController(activity!!, R.id.nav_controller) }
     lateinit var username:String
     lateinit var description:String
 
@@ -24,22 +25,6 @@ class ThirdFragment : Fragment() {
         super.onCreate(savedInstanceState)
         username = arguments?.getString("username").toString()
         description = arguments?.getString("description").toString()
-    }
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_third, container, false)
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
-
-
-
     }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {

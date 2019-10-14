@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/grayBg"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     tools:context=".bottomnavigation.FeedFragment">
 
@@ -10,12 +11,27 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:id="@+id/titleTxt"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         android:layout_margin="24dp"
+        android:visibility="gone"
         android:textSize="18sp"
         android:text="This is the feed fragment" />
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintTop_toBottomOf="@id/titleTxt"
+        app:layout_constraintBottom_toTopOf="@id/backToWelcomeBtn"
+        android:layout_marginBottom="8dp"
+        android:layout_marginTop="8dp"
+        android:id="@+id/recycler"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+
+        />
 
 
     <com.google.android.material.button.MaterialButton

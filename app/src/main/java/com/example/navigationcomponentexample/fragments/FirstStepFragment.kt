@@ -9,27 +9,19 @@ import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.example.navigationcomponentexample.R
 import kotlinx.android.synthetic.main.fragment_first_step.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class FirstStepFragment : Fragment() {
-    var navController: NavController? = null
+class FirstStepFragment : Fragment(R.layout.fragment_first_step) {
+    val navController by lazy { findNavController(activity!!, R.id.nav_controller) }
 
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_first_step, container, false)
-    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        navController = Navigation.findNavController(view)
 
         nextBtn.setOnClickListener {
             if(editText.text.toString().isNotEmpty()){

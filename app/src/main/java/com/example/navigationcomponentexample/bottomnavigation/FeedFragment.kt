@@ -6,39 +6,59 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.os.bundleOf
 import androidx.navigation.NavController
 import androidx.navigation.Navigation
+import androidx.navigation.Navigation.findNavController
 import com.example.navigationcomponentexample.R
+import com.example.navigationcomponentexample.models.FeedItem
 import kotlinx.android.synthetic.main.fragment_feed.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class FeedFragment : Fragment() {
-    var navController: NavController? = null
-    var mainNavController: NavController? = null
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_feed, container, false)
+class FeedFragment : Fragment(R.layout.fragment_feed), FeedAdapter.Interaction {
+    override fun onItemSelected(position: Int, item: FeedItem) {
+        val bundle = bundleOf("title" to item.title)
+        navController?.navigate(R.id.action_feedFragment_to_feedDetailFragment, bundle)
     }
+
+    //get the current navController (nested nav controller)
+    val navController by lazy { findNavController(activity!!, R.id.fragment) }
+    //get the main navController
+    val mainNavController by lazy { findNavController(activity!!, R.id.nav_controller) }
+    lateinit var feedAdapter:FeedAdapter
+
+
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //get the current navController (nested nav controller)
-        navController = Navigation.findNavController(view)
-        //get the main navController
-        mainNavController = Navigation.findNavController(activity!!, R.id.nav_controller)
-    }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
         backToWelcomeBtn.setOnClickListener {
             mainNavController?.navigate(R.id.action_bottomNavFragment_to_welcomeFragment)
         }
+
+        setupRecycler()
+        populateRecycler()
+    }
+
+
+
+    fun setupRecycler(){
+        feedAdapter = FeedAdapter(this)
+        recycler.apply {
+            setHasFixedSize(true)
+            adapter = feedAdapter
+        }
+    }
+
+    fun populateRecycler(){
+        var items = ArrayList<FeedItem>()
+        for (i in 0..20){
+            items.add(FeedItem(i, "Post $i"))
+        }
+        feedAdapter.submitList(items)
+
     }
 
 

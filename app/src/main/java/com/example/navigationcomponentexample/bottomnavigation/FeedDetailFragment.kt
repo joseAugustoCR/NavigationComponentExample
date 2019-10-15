@@ -17,7 +17,8 @@ import com.example.navigationcomponentexample.R
  * A simple [Fragment] subclass.
  */
 class FeedDetailFragment : Fragment(R.layout.fragment_feed_detail) {
-    val navController by lazy { findNavController(activity!!, R.id.fragment) }
+    val navController by lazy { findNavController(view!!) }
+
 
 
 

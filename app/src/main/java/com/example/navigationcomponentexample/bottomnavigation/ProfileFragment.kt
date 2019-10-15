@@ -17,12 +17,12 @@ import kotlinx.android.synthetic.main.fragment_profile.*
  * A simple [Fragment] subclass.
  */
 class ProfileFragment : Fragment(R.layout.fragment_profile) {
-    val navController by lazy { findNavController(activity!!, R.id.fragment) }
+    val navController by lazy { findNavController(view!!) }
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         settingsBtn.setOnClickListener {
-            navController?.navigate(R.id.action_profileFragment_to_settingsFragment)
+            navController.navigate(R.id.action_profileFragment_to_settingsFragment)
         }
 
     }

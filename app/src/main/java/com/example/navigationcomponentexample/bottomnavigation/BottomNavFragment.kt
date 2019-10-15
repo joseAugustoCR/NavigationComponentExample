@@ -24,14 +24,14 @@ class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        setUpBottomNavigation()
+    }
 
+    fun setUpBottomNavigation(){
         // since I'm using a nested fragment
         navHostFragment = childFragmentManager.findFragmentById(R.id.fragment) as NavHostFragment
         //setup the bottom navigation
         NavigationUI.setupWithNavController(bottomNavigationView, navHostFragment.navController)
-
-
-
 
         //this will automatically handle the toolbar
         val appBarConfiguration = AppBarConfiguration
@@ -40,7 +40,6 @@ class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {
                 R.id.profileFragment
             )
             .build()
-
 
         NavigationUI.setupWithNavController(toolbar, navHostFragment.navController, appBarConfiguration)
 
@@ -61,13 +60,8 @@ class BottomNavFragment : Fragment(R.layout.fragment_bottom_nav) {
             }
         }
 
-
-
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-    }
 
     fun hideBottomNavigation(){
         with(bottomNavigationView){

@@ -2,8 +2,10 @@
 <navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/nav_graph_bottomnav"
-    app:startDestination="@id/feedFragment">
+    android:id="@+id/nav_graph_drawer"
+    app:startDestination="@id/feedFragment"
+    >
+
 
     <fragment
         android:id="@+id/feedFragment"
@@ -11,12 +13,7 @@
         android:label="Feed"
         tools:layout="@layout/fragment_feed" >
         <action
-            android:id="@+id/action_feedFragment_to_welcomeFragment"
-            app:popUpToInclusive="true"
-            app:destination="@id/welcomeFragment" />
-        <action
             android:id="@+id/action_feedFragment_to_feedDetailFragment"
-            app:popUpTo="@id/feedFragment"
             app:destination="@id/feedDetailFragment" />
     </fragment>
     <fragment
@@ -25,20 +22,14 @@
         android:label="Profile"
         tools:layout="@layout/fragment_profile" >
         <action
-            android:id="@+id/action_profileFragment_to_welcomeFragment2"
-            app:popUpToInclusive="true"
-            app:destination="@id/welcomeFragment" />
-        <action
             android:id="@+id/action_profileFragment_to_settingsFragment"
-            app:destination="@id/settingsFragment"
-            app:popUpTo="@id/profileFragment"
-            />
+            app:destination="@id/settingsFragment" />
     </fragment>
     <fragment
-        android:id="@+id/welcomeFragment"
-        android:name="com.example.navigationcomponentexample.WelcomeFragment"
-        android:label="fragment_welcome"
-        tools:layout="@layout/fragment_welcome" />
+        android:id="@+id/feedDetailFragment"
+        android:name="com.example.navigationcomponentexample.bottomnavigation.FeedDetailFragment"
+        android:label="fragment_feed_detail"
+        tools:layout="@layout/fragment_feed_detail" />
     <fragment
         android:id="@+id/settingsFragment"
         android:name="com.example.navigationcomponentexample.bottomnavigation.SettingsFragment"
@@ -47,14 +38,5 @@
         <action
             android:id="@+id/action_settingsFragment_to_profileFragment"
             app:destination="@id/profileFragment" />
-    </fragment>
-    <fragment
-        android:id="@+id/feedDetailFragment"
-        android:name="com.example.navigationcomponentexample.bottomnavigation.FeedDetailFragment"
-        android:label="fragment_feed_detail"
-        tools:layout="@layout/fragment_feed_detail" >
-        <action
-            android:id="@+id/action_feedDetailFragment_to_feedFragment"
-            app:destination="@id/feedFragment" />
     </fragment>
 </navigation>

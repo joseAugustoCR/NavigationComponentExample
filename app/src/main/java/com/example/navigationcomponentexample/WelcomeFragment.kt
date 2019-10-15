@@ -16,7 +16,8 @@ import kotlinx.android.synthetic.main.fragment_welcome.*
  * A simple [Fragment] subclass.
  */
 class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
-    val navController by lazy { findNavController(activity!!, R.id.nav_controller) }
+    val navController by lazy { findNavController(view!!) }
+
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
@@ -28,7 +29,11 @@ class WelcomeFragment : Fragment(R.layout.fragment_welcome) {
 
         //navigate by code
         fragmentsBtn.setOnClickListener {
-            navController?.navigate(R.id.action_welcomeFragment_to_firstStepFragment)
+            navController.navigate(R.id.action_welcomeFragment_to_firstStepFragment)
+        }
+
+        drawerBtn.setOnClickListener {
+            navController.navigate(R.id.action_welcomeFragment_to_drawerFragment)
         }
     }
 

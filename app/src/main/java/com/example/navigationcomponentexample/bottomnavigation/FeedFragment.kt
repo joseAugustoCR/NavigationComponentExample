@@ -20,11 +20,12 @@ import kotlinx.android.synthetic.main.fragment_feed.*
 class FeedFragment : Fragment(R.layout.fragment_feed), FeedAdapter.Interaction {
     override fun onItemSelected(position: Int, item: FeedItem) {
         val bundle = bundleOf("title" to item.title)
-        navController?.navigate(R.id.action_feedFragment_to_feedDetailFragment, bundle)
+        navController.navigate(R.id.action_feedFragment_to_feedDetailFragment, bundle)
     }
 
     //get the current navController (nested nav controller)
-    val navController by lazy { findNavController(activity!!, R.id.fragment) }
+//    val navController by lazy { findNavController(activity!!, R.id.fragment) }
+    val navController by lazy { findNavController(view!!) }
     //get the main navController
     val mainNavController by lazy { findNavController(activity!!, R.id.nav_controller) }
     lateinit var feedAdapter:FeedAdapter
@@ -35,7 +36,7 @@ class FeedFragment : Fragment(R.layout.fragment_feed), FeedAdapter.Interaction {
         super.onViewCreated(view, savedInstanceState)
 
         backToWelcomeBtn.setOnClickListener {
-            mainNavController?.navigate(R.id.action_bottomNavFragment_to_welcomeFragment)
+            mainNavController.navigateUp()
         }
 
         setupRecycler()

@@ -9,7 +9,7 @@
 
     <fragment
         android:id="@+id/welcomeFragment"
-        android:name="com.example.navigationcomponentexample.WelcomeFragment"
+        android:name="com.example.navigationcomponentexample.fragments.WelcomeFragment"
         android:label="fragment_welcome"
         tools:layout="@layout/fragment_welcome" >
         <action
@@ -32,10 +32,16 @@
         <action
             android:id="@+id/action_welcomeFragment_to_drawerFragment"
             app:destination="@id/drawerFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_dialogFragment"
+            app:destination="@id/dialogFragment" />
+        <action
+            android:id="@+id/action_welcomeFragment_to_startResultFragment"
+            app:destination="@id/startResultFragment" />
     </fragment>
     <fragment
         android:id="@+id/firstStepFragment"
-        android:name="com.example.navigationcomponentexample.fragments.FirstStepFragment"
+        android:name="com.example.navigationcomponentexample.fragments.fragmentsflow.FirstStepFragment"
         android:label="fragment_first_step"
         tools:layout="@layout/fragment_first_step" >
 
@@ -50,15 +56,17 @@
     </fragment>
     <fragment
         android:id="@+id/secondStepFragment"
-        android:name="com.example.navigationcomponentexample.fragments.SecondStepFragment"
+        android:name="com.example.navigationcomponentexample.fragments.fragmentsflow.SecondStepFragment"
         android:label="fragment_second_step"
         tools:layout="@layout/fragment_second_step" >
         <argument android:name="username"
-            android:defaultValue="None"
-            />
+            android:defaultValue="Human"
+            app:argType="string" />
         <action
             android:id="@+id/action_secondStepFragment_to_thirdFragment"
             app:destination="@id/thirdFragment"
+            app:popUpTo="@id/welcomeFragment"
+
             app:popEnterAnim="@anim/slide_in_left"
             app:popExitAnim="@anim/slide_out_right"
             app:enterAnim="@anim/slide_in_right"
@@ -67,15 +75,15 @@
     </fragment>
     <fragment
         android:id="@+id/thirdFragment"
-        android:name="com.example.navigationcomponentexample.fragments.ThirdFragment"
+        android:name="com.example.navigationcomponentexample.fragments.fragmentsflow.ThirdFragment"
         android:label="fragment_third"
         tools:layout="@layout/fragment_third" >
         <argument android:name="username"
-            android:defaultValue="None"
-            />
+            android:defaultValue="Human"
+            app:argType="string" />
         <argument android:name="description"
-            android:defaultValue="None"
-            />
+            android:defaultValue="Nothing to say"
+            app:argType="string" />
 
 <!--        popUpTo describes what I want to happen when back button pressed-->
 <!--        popUpToIncluse true means clear everything, including the destination-->
@@ -92,7 +100,7 @@
     </fragment>
     <fragment
         android:id="@+id/bottomNavFragment"
-        android:name="com.example.navigationcomponentexample.bottomnavigation.BottomNavFragment"
+        android:name="com.example.navigationcomponentexample.fragments.BottomNavFragment"
         android:label="fragment_bottom_nav"
 
         tools:layout="@layout/fragment_bottom_nav" >
@@ -104,7 +112,32 @@
     </fragment>
     <fragment
         android:id="@+id/drawerFragment"
-        android:name="com.example.navigationcomponentexample.drawerlayout.DrawerFragment"
+        android:name="com.example.navigationcomponentexample.fragments.DrawerFragment"
         android:label="fragment_drawer"
         tools:layout="@layout/fragment_drawer" />
+    <dialog
+        android:id="@+id/dialogFragment"
+        android:name="com.example.navigationcomponentexample.fragments.DialogFragment"
+        android:label="fragment_dialog"
+        tools:layout="@layout/fragment_dialog" />
+    <fragment
+        android:id="@+id/startResultFragment"
+        android:name="com.example.navigationcomponentexample.fragments.result.StartResultFragment"
+        android:label="fragment_start_result"
+        tools:layout="@layout/fragment_start_result" >
+        <action
+            android:id="@+id/action_startResultFragment_to_endResultFragment"
+            app:destination="@id/endResultFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/endResultFragment"
+        android:name="com.example.navigationcomponentexample.fragments.result.EndResultFragment"
+        android:label="fragment_end_result"
+        tools:layout="@layout/fragment_end_result" >
+        <argument android:name="callback"
+            app:argType="com.example.navigationcomponentexample.utils.NavigationResult" />
+        <action
+            android:id="@+id/action_endResultFragment_to_startResultFragment"
+            app:destination="@id/startResultFragment" />
+    </fragment>
 </navigation>

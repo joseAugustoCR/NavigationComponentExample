@@ -1,4 +1,4 @@
-package com.example.navigationcomponentexample.drawerlayout
+package com.example.navigationcomponentexample.fragments
 
 
 import android.os.Bundle
@@ -19,15 +19,6 @@ import kotlinx.android.synthetic.main.fragment_drawer.toolbar
  */
 class DrawerFragment : Fragment(R.layout.fragment_drawer) {
     lateinit var navHostFragment: NavHostFragment
-//    val appBarConfiguration by lazy {
-//        AppBarConfiguration(
-//            setOf(
-//                R.id.feedFragment,
-//                R.id.profileFragment
-//            ), drawerLayout
-//        )
-//    }
-
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)

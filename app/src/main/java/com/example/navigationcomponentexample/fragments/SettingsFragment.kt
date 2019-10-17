@@ -1,4 +1,4 @@
-package com.example.navigationcomponentexample.bottomnavigation
+package com.example.navigationcomponentexample.fragments
 
 
 import android.os.Bundle
@@ -12,15 +12,20 @@ import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 
 import com.example.navigationcomponentexample.R
+import kotlinx.android.synthetic.main.fragment_settings.*
 
 /**
  * A simple [Fragment] subclass.
  */
-class FeedDetailFragment : Fragment(R.layout.fragment_feed_detail) {
+class SettingsFragment : Fragment(R.layout.fragment_settings) {
     val navController by lazy { findNavController(view!!) }
 
-
-
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        backToProfile.setOnClickListener {
+            navController.navigateUp()
+        }
+    }
 
 
 }

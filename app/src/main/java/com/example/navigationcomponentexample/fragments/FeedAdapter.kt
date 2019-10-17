@@ -1,4 +1,4 @@
-package com.example.navigationcomponentexample.bottomnavigation
+package com.example.navigationcomponentexample.fragments
 
 import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater

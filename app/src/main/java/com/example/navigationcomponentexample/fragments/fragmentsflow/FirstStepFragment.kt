@@ -1,23 +1,19 @@
-package com.example.navigationcomponentexample.fragments
+package com.example.navigationcomponentexample.fragments.fragmentsflow
 
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
-import androidx.core.os.bundleOf
-import androidx.navigation.NavController
-import androidx.navigation.Navigation
 import androidx.navigation.Navigation.findNavController
 import com.example.navigationcomponentexample.R
+import com.example.navigationcomponentexample.fragments.FirstStepFragmentDirections
 import kotlinx.android.synthetic.main.fragment_first_step.*
 
 /**
  * A simple [Fragment] subclass.
  */
 class FirstStepFragment : Fragment(R.layout.fragment_first_step) {
-    val navController by lazy { findNavController(activity!!, R.id.nav_controller) }
+    val navController by lazy { findNavController(activity!!, R.id.nav_host_fragment) }
 
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -25,8 +21,11 @@ class FirstStepFragment : Fragment(R.layout.fragment_first_step) {
 
         nextBtn.setOnClickListener {
             if(editText.text.toString().isNotEmpty()){
-                val bundle = bundleOf("username" to editText.text.toString())
-                navController?.navigate(R.id.action_firstStepFragment_to_secondStepFragment, bundle)
+                navController?.navigate(
+                    FirstStepFragmentDirections.actionFirstStepFragmentToSecondStepFragment(
+                        editText.text.toString()
+                    )
+                )
             }
         }
         // or you can create an onclick listener directly
@@ -35,4 +34,7 @@ class FirstStepFragment : Fragment(R.layout.fragment_first_step) {
 
     }
 
+    override fun onDestroy() {
+        super.onDestroy()
+    }
 }

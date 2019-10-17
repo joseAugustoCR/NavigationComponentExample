@@ -1,4 +1,4 @@
-package com.example.navigationcomponentexample.bottomnavigation
+package com.example.navigationcomponentexample.fragments
 
 
 import android.os.Bundle
@@ -22,7 +22,7 @@ class ProfileFragment : Fragment(R.layout.fragment_profile) {
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
         settingsBtn.setOnClickListener {
-            navController.navigate(R.id.action_profileFragment_to_settingsFragment)
+            navController.navigate(ProfileFragmentDirections.actionProfileFragmentToSettingsFragment())
         }
 
     }

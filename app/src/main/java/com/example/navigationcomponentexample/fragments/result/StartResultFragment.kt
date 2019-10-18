@@ -8,7 +8,6 @@ import android.widget.Toast
 import androidx.navigation.Navigation
 
 import com.example.navigationcomponentexample.R
-import com.example.navigationcomponentexample.fragments.StartResultFragmentDirections
 import com.example.navigationcomponentexample.utils.NavigationResult
 import kotlinx.android.synthetic.main.fragment_start_result.*
 

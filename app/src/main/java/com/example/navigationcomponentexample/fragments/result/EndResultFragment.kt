@@ -7,8 +7,6 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.navArgs
 
 import com.example.navigationcomponentexample.R
-import com.example.navigationcomponentexample.fragments.EndResultFragmentArgs
-import com.example.navigationcomponentexample.fragments.EndResultFragmentDirections
 import kotlinx.android.synthetic.main.fragment_end_result.*
 
 /**

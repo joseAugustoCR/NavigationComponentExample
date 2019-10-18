@@ -6,8 +6,6 @@ import androidx.fragment.app.Fragment
 import androidx.navigation.Navigation.findNavController
 import androidx.navigation.fragment.navArgs
 import com.example.navigationcomponentexample.R
-import com.example.navigationcomponentexample.fragments.ThirdFragmentArgs
-import com.example.navigationcomponentexample.fragments.ThirdFragmentDirections
 import kotlinx.android.synthetic.main.fragment_third.*
 
 /**

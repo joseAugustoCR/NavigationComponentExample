@@ -6,7 +6,6 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import androidx.navigation.Navigation.findNavController
 import com.example.navigationcomponentexample.R
-import com.example.navigationcomponentexample.fragments.FirstStepFragmentDirections
 import kotlinx.android.synthetic.main.fragment_first_step.*
 
 /**
